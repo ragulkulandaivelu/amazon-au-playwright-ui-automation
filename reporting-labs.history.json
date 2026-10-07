@@ -1,0 +1,760 @@
+[
+ {
+  "time": 1791281509513,
+  "duration": 6677.181,
+  "passed": 9,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 9,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    1704
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    3014
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    4414
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1025
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    925
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1133
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    926
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    935
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1395
+   ]
+  }
+ },
+ {
+  "time": 1791281808186,
+  "duration": 6811.000999999999,
+  "passed": 9,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 9,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    2414
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    3274
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    4144
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    977
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1151
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1035
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    956
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    914
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1463
+   ]
+  }
+ },
+ {
+  "time": 1791331921330,
+  "duration": 5893.8240000000005,
+  "passed": 3,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 3,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    1832
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    2860
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    4380
+   ]
+  }
+ },
+ {
+  "time": 1791332558051,
+  "duration": 10964.044,
+  "passed": 2,
+  "failed": 0,
+  "flaky": 1,
+  "skipped": 0,
+  "total": 3,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    2366
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "k",
+    2199
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    5062
+   ]
+  }
+ },
+ {
+  "time": 1791332667909,
+  "duration": 10321.349,
+  "passed": 2,
+  "failed": 0,
+  "flaky": 1,
+  "skipped": 0,
+  "total": 3,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    2204
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "k",
+    1944
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    3987
+   ]
+  }
+ },
+ {
+  "time": 1791332804011,
+  "duration": 5043.055,
+  "passed": 3,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 3,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    1695
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    2487
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    4474
+   ]
+  }
+ },
+ {
+  "time": 1791332879548,
+  "duration": 6749.108,
+  "passed": 9,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 9,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    1783
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    3056
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    4143
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    957
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1039
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1117
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    1061
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    1008
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1249
+   ]
+  }
+ },
+ {
+  "time": 1791333410484,
+  "duration": 6436.0070000000005,
+  "passed": 9,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 9,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    2199
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    2233
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    5302
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    960
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1017
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1032
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    926
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    924
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1260
+   ]
+  }
+ },
+ {
+  "time": 1791334044001,
+  "duration": 6.621999999999986,
+  "passed": 0,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 0,
+  "tests": {}
+ },
+ {
+  "time": 1791334086537,
+  "duration": 7495.19,
+  "passed": 6,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 6,
+  "tests": {
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1266
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1209
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1116
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    1107
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    1153
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1390
+   ]
+  }
+ },
+ {
+  "time": 1791334138929,
+  "duration": 6816.878,
+  "passed": 9,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 9,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    1666
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    2511
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    4501
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1115
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1080
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    967
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    929
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    1036
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1407
+   ]
+  }
+ },
+ {
+  "time": 1791338603979,
+  "duration": 7278.231,
+  "passed": 9,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 9,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    2184
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    3199
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    4814
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1215
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    977
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1116
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    1019
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    1068
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1517
+   ]
+  }
+ },
+ {
+  "time": 1791338840475,
+  "duration": 6721.849,
+  "passed": 9,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 9,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    2070
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    3141
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    4648
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    984
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    977
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1098
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    1023
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    933
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1391
+   ]
+  }
+ },
+ {
+  "time": 1791339374132,
+  "duration": 5192.683,
+  "passed": 3,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 3,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    2155
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    2836
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    4656
+   ]
+  }
+ },
+ {
+  "time": 1791339382687,
+  "duration": 7104.03,
+  "passed": 6,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 6,
+  "tests": {
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1112
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1084
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1118
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    1025
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    1045
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1421
+   ]
+  }
+ },
+ {
+  "time": 1791339393034,
+  "duration": 6384.777,
+  "passed": 9,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 9,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    1357
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    1878
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    4259
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1097
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1060
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    942
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    917
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    921
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1164
+   ]
+  }
+ },
+ {
+  "time": 1791339582175,
+  "duration": 6702.253000000001,
+  "passed": 6,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 6,
+  "tests": {
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1066
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1013
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1015
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    1016
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    1023
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1271
+   ]
+  }
+ },
+ {
+  "time": 1791339753536,
+  "duration": 6608.871,
+  "passed": 6,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 6,
+  "tests": {
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1054
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1014
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1029
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    1029
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    1020
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1172
+   ]
+  }
+ },
+ {
+  "time": 1791339959888,
+  "duration": 6484.304,
+  "passed": 6,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 6,
+  "tests": {
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1225
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1029
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    951
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    937
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    929
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1167
+   ]
+  }
+ },
+ {
+  "time": 1791340186102,
+  "duration": 6730.36,
+  "passed": 6,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 6,
+  "tests": {
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1056
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1029
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    1033
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    1022
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    1027
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1274
+   ]
+  }
+ },
+ {
+  "time": 1791340253740,
+  "duration": 6851.257,
+  "passed": 9,
+  "failed": 0,
+  "flaky": 0,
+  "skipped": 0,
+  "total": 9,
+  "tests": {
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 1. Home Page Verification": [
+    "p",
+    2554
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 2. Category Navigation": [
+    "p",
+    2893
+   ],
+   "chromium-ui::tests/amazonUi.spec.ts::Part A — Amazon Australia UI Automation Suite › 3. Search Functionality": [
+    "p",
+    5573
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4. Create a Resource (POST)": [
+    "p",
+    1045
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 4b. Create a Resource - Negative Validation (Malformed Payload)": [
+    "p",
+    1047
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5. Read and Verify (GET)": [
+    "p",
+    975
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 5b. Read and Verify - Negative Validation (Non-Existent ID)": [
+    "p",
+    1142
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 6. Update a Resource (PUT)": [
+    "p",
+    1013
+   ],
+   "api-pipeline::tests/petstoreApi.spec.ts::Part B — Petstore API REST Automation › 7. Delete and Confirm (DELETE)": [
+    "p",
+    1283
+   ]
+  }
+ }
+]

@@ -29,8 +29,6 @@ test.describe('Part B — Petstore API REST Automation', () => {
 
   /**
    * NEGATIVE VALIDATION 1: Malformed Body Input (Bad Request)
-   * Asserts that sending an invalid data type (e.g., string instead of an array for photoUrls) 
-   * returns a non-200 client error status from the server gateway.
    */
   test('4b. Create a Resource - Negative Validation (Malformed Payload)', async ({ request }) => {
     const response = await request.post(`${API_CONFIG.BASE_URL}/v2/pet`, {
@@ -38,11 +36,10 @@ test.describe('Part B — Petstore API REST Automation', () => {
       data: {
         id: testData.id,
         name: testData.name,
-        photoUrls: "not-an-array-string-error" // Invalid type schema violation (expects string[])
+        photoUrls: "not-an-array-string-error" 
       }
     });
 
-    // Validates that the application catches bad inputs and drops them gracefully
     expect(response.status()).not.toBe(200);
   });
 
@@ -62,20 +59,15 @@ test.describe('Part B — Petstore API REST Automation', () => {
 
   /**
    * NEGATIVE VALIDATION 2: Resource Not Found Verification
-   * Asserts that querying a random, non-existent entity ID constraints 
-   * throws an explicit 404 error with a structured API error schema response payload.
    */
   test('5b. Read and Verify - Negative Validation (Non-Existent ID)', async ({ request }) => {
-    const nonExistentId = 999999999999; // ID deliberately out of normal range bounds
+    const nonExistentId = 999999999999; 
     
     const response = await request.get(`${API_CONFIG.BASE_URL}/v2/pet/${nonExistentId}`, {
       headers: API_CONFIG.DEFAULT_HEADERS
     });
 
-    // 1. Assert status boundary code is 404 (Not Found)
     expect(response.status()).toBe(404);
-
-    // 2. Validate error metadata structure match exactly
     const errorBody = await response.json();
     expect(errorBody).toStrictEqual({
       code: 1,

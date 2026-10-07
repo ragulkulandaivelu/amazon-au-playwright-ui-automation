@@ -18,6 +18,18 @@ test.describe('Part A — Amazon Australia UI Automation Suite', () => {
     amazonHome = new AmazonHomePage(page);
   });
 
+  //  GLOBAL FAILURE HANDLER: Captures a fallback screenshot ONLY if a test breaks mid-way
+  test.afterEach(async ({ page }, testInfo) => {
+    if (testInfo.status !== testInfo.expectedStatus) {
+      const failureBuffer = await page.screenshot({ fullPage: false });
+      
+      await testInfo.attach('❌ FAILURE-FALLBACK-SCREENSHOT', {
+        body: failureBuffer,
+        contentType: 'image/png'
+      });
+    }
+  });
+
   /**
    * Requirement 1: Home Page Verification
    * Instruction: "Capture a full-page screenshot."
@@ -25,8 +37,14 @@ test.describe('Part A — Amazon Australia UI Automation Suite', () => {
   test('1. Home Page Verification', async () => {
     await amazonHome.verifyHomePageElements();
     
-    // Explicitly triggers full-page scrolling capture
-    await amazonHome.captureScreenshot('01-home-page-verification.png', { fullPage: true });
+    // Capture a full-page buffer natively to override default reporting hooks
+    const fullPageBuffer = await amazonHome.page.screenshot({ fullPage: true });
+
+    // Attach it cleanly to the test runners info stream
+    await test.info().attach('01-home-page-verification.png', {
+      body: fullPageBuffer,
+      contentType: 'image/png'
+    });
   });
 
   /**
@@ -40,8 +58,14 @@ test.describe('Part A — Amazon Australia UI Automation Suite', () => {
     await expect(page).toHaveURL(/.*electronics.*|.*node=4851799051.*/i);
     await expect(amazonHome.electronicsCategoryHeader).toBeVisible({ timeout: 15000 });
     
-    // Captures a viewport-specific screenshot
-    await amazonHome.captureScreenshot('02-electronics-category.png', { fullPage: false });
+    // Capture standard viewport buffer (fullPage: false)
+    const viewportBuffer = await page.screenshot({ fullPage: false });
+
+    // Attach cleanly to the report
+    await test.info().attach('02-electronics-category.png', {
+      body: viewportBuffer,
+      contentType: 'image/png'
+    });
   });
 
   /**
@@ -66,7 +90,13 @@ test.describe('Part A — Amazon Australia UI Automation Suite', () => {
     await expect(amazonHome.searchResultHeader).toContainText(new RegExp(TARGET_SEARCH_TERM, 'i'));
     await expect(amazonHome.firstSearchResultCard).toBeVisible({ timeout: 15000 });
 
-    // Captures a viewport-specific screenshot
-    await amazonHome.captureScreenshot('03-search-wireless-headphones.png', { fullPage: false });
+    // Capture standard viewport buffer (fullPage: false)
+    const searchBuffer = await page.screenshot({ fullPage: false });
+
+    // Attach cleanly to the report
+    await test.info().attach('03-search-wireless-headphones.png', {
+      body: searchBuffer,
+      contentType: 'image/png'
+    });
   });
 });

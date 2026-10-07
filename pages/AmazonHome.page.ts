@@ -1,4 +1,4 @@
-import { type Locator, type Page, expect } from '@playwright/test';
+import { type Locator, type Page, expect, test } from '@playwright/test';
 
 export class AmazonHomePage {
   readonly page: Page;
@@ -20,9 +20,6 @@ export class AmazonHomePage {
     this.searchSubmitButton = page.locator('#nav-search-submit-button');
     this.cartButton = page.locator('#nav-cart');
 
-    // Horizontal Top Navigation Menu
-    // OPTIMIZATION: Bounded the text lookup exclusively inside the nav-main header zones to prevent matching loose panel links
-    //this.topNavElectronicsLink = page.locator('#nav-xshop a, #nav-subnav a, #nav-navbar-carousel a, #nav-main .nav-a').filter({ hasText: /^electronics\$/i }).first();
     this.electronicsCategoryHeader = page.locator('#contentGrid_298457, h1, h2, .nav-category-header, [data-component-type="s-messaging-container-results-count"]').first();
     this.topNavElectronicsLink = page.getByRole('link', { name: /^electronics$/i }).first();
 
@@ -45,13 +42,18 @@ export class AmazonHomePage {
 
   /**
    * Flexible verification screenshot utility handler.
-   * @param filename - Target string destination filename.
-   * @param options - Dynamic runtime options controlling the capture canvas depth.
+   * FIX: Attaches the screenshot dynamically to the test info block so it renders inside the HTML report.
    */
   async captureScreenshot(filename: string, options: { fullPage: boolean }) {
-    await this.page.screenshot({
-      path: `verification/${filename}`,
-      fullPage: options.fullPage, // Toggles true/false cleanly based on test instructions
+    // 1. Capture the image buffer directly into memory
+    const screenshotBuffer = await this.page.screenshot({
+      fullPage: options.fullPage,
+    });
+
+    // 2. Attach it to the current running test metadata with an image content type
+    await test.info().attach(filename, {
+      body: screenshotBuffer,
+      contentType: 'image/png'
     });
   }
 }
