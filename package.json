@@ -3,29 +3,26 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "clean": "rimraf test-results playwright-report",
+    "pretest": "npm run clean",
     "test": "playwright test",
-    "test:ui": "playwright test --project=\"chromium-ui\" --output=test-results",
-    "test:api": "playwright test --project=\"api-pipeline\" --output=test-results",
-    "test:headed": "playwright test --headed --output=test-results",
+    "test:ui": "playwright test --project=chromium-ui", 
+    "test:api": "playwright test --project=api-pipeline",
+    "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
-    "report": "playwright show-report play-reports"
+    "report": "playwright show-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",
     "@types/node": "^22.0.0",
     "reporting-labs": "^0.6.13",
+    "rimraf": "^6.1.3",
     "typescript": "^5.0.0"
   },
   "description": "This project contains three Playwright UI automation tests for Amazon Australia:",
   "main": "index.js",
-  "directories": {
-    "test": "tests",
-    "results": "test-results",
-    "reports": "play-reports",
-    "screenshots": "test-results/screenshots"
-  },
   "keywords": [],
-  "author": "",
+  "author": "Ragul Kulandaivelu",
   "license": "ISC",
   "type": "commonjs"
 }

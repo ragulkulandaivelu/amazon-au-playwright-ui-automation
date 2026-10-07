@@ -1,0 +1,57 @@
+name: Playwright Test Automation Suite
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+# 1. ADD THIS BLOCK: Grants permission to the GitHub token to write comments on your PRs
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code Repository
+      uses: actions/checkout@v4
+        
+    - name: Setup Node.js Environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+        cache: 'npm'
+        
+    - name: Install Dependencies
+      run: npm ci
+      
+    - name: Install Playwright System Browsers
+      run: npx playwright install --with-deps
+
+    - name: Execute UI and API Test Pipelines
+      run: npm run test
+
+    - name: Upload Playwright Test Artifacts Report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: playwright-test-report
+        path: playwright-report/
+        retention-days: 30
+
+    # 2. ADD THIS STEP: Dynamically builds the download link and writes the PR comment text
+    - name: Comment PR with Report Link
+      if: always() && github.event_name == 'pull_request'
+      uses: thollander/actions-comment-pull-request@v2
+      with:
+        message: |
+          ### 📊 Playwright Automation Test Run Metrics Completed!
+          
+          The UI and API validation suites have finished executing in CI. You can download and view the interactive HTML execution report dashboard, screenshots, and logs below:
+          
+          🔗 **[Download Playwright Test Artifacts Report Package](https://github.com{{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts)**
+          
+          _Status: ${{ job.status == 'success' && '✅ SUCCESS' || '❌ FAILED' }}_
+        comment_tag: playwright_report_tracker
