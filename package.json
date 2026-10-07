@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "test": "playwright test",
-    "test:ui": "playwright test --project=chromium --output=test-results", 
-    "test:api": "playwright test tests/api --output=test-results",
+    "test:ui": "playwright test --project=\"chromium-ui\" --output=test-results",
+    "test:api": "playwright test --project=\"api-pipeline\" --output=test-results",
     "test:headed": "playwright test --headed --output=test-results",
     "test:debug": "playwright test --debug",
     "report": "playwright show-report play-reports"
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@playwright/test": "^1.63.0",
     "@types/node": "^22.0.0",
+    "reporting-labs": "^0.6.13",
     "typescript": "^5.0.0"
   },
   "description": "This project contains three Playwright UI automation tests for Amazon Australia:",
