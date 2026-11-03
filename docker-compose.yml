@@ -1,0 +1,34 @@
+# npm run docker:dev -> tests with .env.dev, report in allure-report-dev
+# npm run docker:qa  -> tests with .env.qa,  report in allure-report-qa
+
+x-tests-base: &tests-base
+  build:
+    context: .
+    dockerfile: Dockerfile
+  ipc: host
+  init: true
+
+services:
+  tests-dev:
+    <<: *tests-base
+    env_file: .env.dev
+    command: >
+      sh -c "npx playwright test; code=$$?;
+             npx allure generate allure-results --clean -o allure-report;
+             exit $$code"
+    volumes:
+      - ./allure-results-dev:/app/allure-results
+      - ./allure-report-dev:/app/allure-report
+      - ./verification:/app/verification
+
+  tests-qa:
+    <<: *tests-base
+    env_file: .env.qa
+    command: >
+      sh -c "npx playwright test; code=$$?;
+             npx allure generate allure-results --clean -o allure-report;
+             exit $$code"
+    volumes:
+      - ./allure-results-qa:/app/allure-results
+      - ./allure-report-qa:/app/allure-report
+      - ./verification:/app/verification

@@ -11,7 +11,7 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 1, 
   workers: process.env.CI ? 4 : undefined,
   
-  reporter: [
+  reporter: [['allure-playwright'], 
     ['html', { open: 'never', outputFolder: 'playwright-report' }],
     ['list'],
     // 3. FIX: Pass your custom configuration object directly into the plugin array parameters
