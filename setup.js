@@ -3,7 +3,7 @@
 // and appends allure folders to .gitignore. Safe to run more than once.
 const fs = require('fs');
 const cfgPath = 'playwright.config.ts';
-
+ 
 if (fs.existsSync(cfgPath)) {
   const src = fs.readFileSync(cfgPath, 'utf8');
   if (src.includes('allure-playwright')) {
@@ -29,7 +29,7 @@ if (fs.existsSync(cfgPath)) {
 } else {
   console.log('config: playwright.config.ts not found. Run this from the repo root.');
 }
-
+ 
 const add = '\n# allure\nallure-results*/\nallure-report*/\n';
 const cur = fs.existsSync('.gitignore') ? fs.readFileSync('.gitignore', 'utf8') : '';
 if (!cur.includes('allure-results')) { fs.appendFileSync('.gitignore', add); console.log('.gitignore: updated'); }
