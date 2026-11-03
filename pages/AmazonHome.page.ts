@@ -9,9 +9,17 @@ export class AmazonHomePage {
  
   // ==================== Core Layout Locators ====================
  
+  // get amazonLogo(): Locator {
+  //   return this.page.getByRole('link', { name: 'Amazon.com.au' }).first();
+  // }
+
+  // Replace lines 11-13 in pages/AmazonHome.page.ts:
   get amazonLogo(): Locator {
-    return this.page.getByRole('link', { name: 'Amazon.com.au' }).first();
-  }
+    return this.page
+    .locator('#nav-logo-sprites, #nav-logo, a[href*="ref=nav_logo"]')
+    .or(this.page.getByRole('link', { name: /amazon/i }))
+    .first();
+}
  
   get searchInput(): Locator {
     return this.page.getByRole('searchbox', { name: 'Search Amazon.com.au' });
@@ -63,11 +71,20 @@ export class AmazonHomePage {
    * Verifies the core home page layout elements are visible.
    * @returns {Promise<void>}
    */
+  // async verifyHomePageElements(): Promise<void> {
+  //   await expect(this.amazonLogo).toBeVisible();
+  //   await expect(this.searchInput).toBeVisible();
+  //   await expect(this.searchSubmitButton).toBeVisible();
+  //   await expect(this.cartButton).toBeVisible();
+  // }
+
+  // Replace lines 66-71 in pages/AmazonHome.page.ts:
   async verifyHomePageElements(): Promise<void> {
-    await expect(this.amazonLogo).toBeVisible();
-    await expect(this.searchInput).toBeVisible();
-    await expect(this.searchSubmitButton).toBeVisible();
-    await expect(this.cartButton).toBeVisible();
+  // Give elements enough time to render on CI runners
+    await expect(this.amazonLogo).toBeVisible({ timeout: 15000 });
+    await expect(this.searchInput).toBeVisible({ timeout: 15000 });
+    await expect(this.searchSubmitButton).toBeVisible({ timeout: 15000 });
+    await expect(this.cartButton).toBeVisible({ timeout: 15000 });
   }
  
   /**

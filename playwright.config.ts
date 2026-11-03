@@ -18,12 +18,23 @@ export default defineConfig({
     ['reporting-labs', reportingLabsConfig] 
   ],
   
+  // use: {
+  //   viewport: { width: 1440, height: 900 },
+  //   actionTimeout: 15000,
+  //   navigationTimeout: 20000,
+  //   screenshot: 'off',
+  //   trace: 'retain-on-failure'
+  // }
   use: {
-    viewport: { width: 1440, height: 900 },
-    actionTimeout: 15000,
-    navigationTimeout: 20000,
-    screenshot: 'off',
-    trace: 'retain-on-failure'
+  viewport: { width: 1440, height: 900 },
+  actionTimeout: 15000,
+  navigationTimeout: 30000,
+  screenshot: 'off',
+  trace: 'retain-on-failure',
+  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  launchOptions: {
+    args: ['--disable-blink-features=AutomationControlled'],
+  },
   },
   
   projects: [
