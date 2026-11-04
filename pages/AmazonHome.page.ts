@@ -2,18 +2,6 @@ import { Page, Locator, expect } from '@playwright/test';
  
 /**
  * AmazonHomePage — Page Object Model
- *
- * All properties from the original page object are preserved so the
- * existing test file (amazonUi.spec.ts) compiles without changes:
- *   - searchSubmitButton  (alias kept alongside searchButton)
- *   - electronicsCategoryHeader
- *   - searchResultHeader
- *   - firstSearchResultCard
- * Locator priority (Playwright best practices for third-party sites):
- *   1. getByRole    — first choice; tied to ARIA semantics
- *   2. getByLabel / getByPlaceholder — for inputs without a visible role name
- *   3. getByText    — for navigation links whose text is the stable identifier
- *   data-testid is not used because we do not control Amazon's DOM
  */
 export class AmazonHomePage {
     readonly page: Page;
@@ -35,6 +23,12 @@ export class AmazonHomePage {
  
     // Bot-check page — "Continue shopping" button Amazon shows to headless CI runners
     readonly continueShoppingBtn: Locator;
+
+    // Locators used by tests/amazonUi.spec.ts
+    readonly electronicsCategoryHeader: Locator;
+    readonly searchSubmitButton: Locator;
+    readonly searchResultHeader: Locator;
+    readonly firstSearchResultCard: Locator;
  
     constructor(page: Page) {
         this.page = page;
@@ -65,6 +59,24 @@ export class AmazonHomePage {
         // Bot-check page button
         this.continueShoppingBtn = page
             .getByRole('button', { name: /continue shopping/i });
+
+        // Assignments used by tests/amazonUi.spec.ts
+        this.searchSubmitButton = page
+            .getByRole('button', { name: /^go$/i })
+            .or(page.getByRole('button', { name: /search/i }))
+            .first();
+
+        this.electronicsCategoryHeader = page
+            .getByRole('heading', { name: /electronics/i })
+            .first();
+
+        this.searchResultHeader = page
+            .getByRole('heading', { level: 1 })
+            .first();
+
+        this.firstSearchResultCard = page
+            .locator('[data-component-type="s-search-result"]')
+            .first();
     }
  
     // ── Bot-check handler ─────────────────────────────────────────────────────
@@ -73,10 +85,6 @@ export class AmazonHomePage {
      * Amazon shows a "Click the button below to continue shopping" page
      * to headless CI/CD runners (GitHub Actions, Jenkins, Docker) because
      * their IP ranges are on Amazon's bot blocklist.
-     *
-     * This method detects that page and clicks through it automatically.
-     * It is called inside goto() so every test is protected transparently.
-     * If the bot page does not appear, the try/catch exits silently.
      */
     private async handleBotCheckIfPresent(): Promise<void> {
         try {
