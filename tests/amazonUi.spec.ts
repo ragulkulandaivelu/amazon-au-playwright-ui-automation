@@ -1,6 +1,30 @@
 import { test, expect } from '@playwright/test';
 import { AmazonHomePage } from '../pages/AmazonHome.page';
 
+// At the top of the class (declarations)
+readonly electronicsCategoryHeader: Locator;
+readonly searchSubmitButton: Locator;
+readonly searchResultHeader: Locator;
+readonly firstSearchResultCard: Locator;
+
+// Inside constructor (assignments)
+this.searchSubmitButton = page
+    .getByRole('button', { name: /^go$/i })
+    .or(page.getByRole('button', { name: /search/i }))
+    .first();
+
+this.electronicsCategoryHeader = page
+    .getByRole('heading', { name: /electronics/i })
+    .first();
+
+this.searchResultHeader = page
+    .getByRole('heading', { level: 1 })
+    .first();
+
+this.firstSearchResultCard = page
+    .locator('[data-component-type="s-search-result"]')
+    .first();
+
 // UPGRADE: Added 'www.' prefix to prevent temporary redirect (301) latency failures during test initialization
 const HOME_PAGE_URL = 'https://www.amazon.com.au';
 const TARGET_SEARCH_TERM = 'wireless headphones';
