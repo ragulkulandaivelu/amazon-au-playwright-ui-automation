@@ -18,3 +18,6 @@ playwright-report/
 # allure
 allure-results*/
 allure-report*/
+
+auth/
+reporting-labs/
