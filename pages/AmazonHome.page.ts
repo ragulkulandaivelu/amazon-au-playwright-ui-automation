@@ -9,64 +9,54 @@ import { Page, Locator, expect } from '@playwright/test';
  *   - electronicsCategoryHeader
  *   - searchResultHeader
  *   - firstSearchResultCard
+ * Locator priority (Playwright best practices for third-party sites):
+ *   1. getByRole    — first choice; tied to ARIA semantics
+ *   2. getByLabel / getByPlaceholder — for inputs without a visible role name
+ *   3. getByText    — for navigation links whose text is the stable identifier
+ *   data-testid is not used because we do not control Amazon's DOM
  */
 export class AmazonHomePage {
     readonly page: Page;
  
     // ── Locators ──────────────────────────────────────────────────────────────
  
-    // Logo
+    // Logo — <a aria-label="Amazon"> wrapping the logo image
     readonly amazonLogo: Locator;
  
-    // Search — both names kept so spec.ts compiles regardless of which it uses
+    // Search — stable role + placeholder fallback for slow CI page loads
     readonly searchInput: Locator;
     readonly searchButton: Locator;
-    readonly searchSubmitButton: Locator;   // alias → same element as searchButton
  
-    // Cart
+    // Cart — regex ignores the dynamic item count in the aria-label
     readonly cartButton: Locator;
  
-    // Hamburger menu
+    // Hamburger — entry point to All Departments / Electronics panel
     readonly hamburgerMenu: Locator;
  
-    // Bot-check page
+    // Bot-check page — "Continue shopping" button Amazon shows to headless CI runners
     readonly continueShoppingBtn: Locator;
- 
-    // Electronics category header — shown after navigating to Electronics
-    // spec.ts line 59: expect(amazonHome.electronicsCategoryHeader).toBeVisible()
-    readonly electronicsCategoryHeader: Locator;
- 
-    // Search results — used in spec.ts lines 90-91
-    readonly searchResultHeader: Locator;
-    readonly firstSearchResultCard: Locator;
  
     constructor(page: Page) {
         this.page = page;
  
-        // Logo
         this.amazonLogo = page
             .getByRole('link', { name: /amazon/i })
             .first();
  
-        // Search input — getByRole + placeholder fallback for slow CI loads
         this.searchInput = page
             .getByRole('searchbox')
             .or(page.getByPlaceholder(/search amazon/i))
             .first();
  
-        // Search button — both property names point to the same element
         this.searchButton = page
             .getByRole('button', { name: /^go$/i })
             .or(page.getByRole('button', { name: /search/i }))
             .first();
-        this.searchSubmitButton = this.searchButton;   // alias for spec.ts compatibility
  
-        // Cart
         this.cartButton = page
             .getByRole('link', { name: /cart/i })
             .first();
  
-        // Hamburger / All departments
         this.hamburgerMenu = page
             .getByRole('button', { name: /open menu|hamburger|all/i })
             .or(page.getByRole('link', { name: /^all$/i }))
@@ -75,36 +65,18 @@ export class AmazonHomePage {
         // Bot-check page button
         this.continueShoppingBtn = page
             .getByRole('button', { name: /continue shopping/i });
- 
-        // Electronics category page — heading that confirms navigation succeeded
-        // Amazon AU renders the department name as an <h1> or section heading
-        this.electronicsCategoryHeader = page
-            .getByRole('heading', { name: /electronics/i })
-            .or(page.getByRole('heading', { name: /results/i }))
-            .first();
- 
-        // Search results page elements
-        // The results region heading (e.g. "results for ...")
-        this.searchResultHeader = page
-            .getByRole('heading', { level: 1 })
-            .or(page.locator('.a-size-medium.a-color-base.a-text-normal').first())
-            .first();
- 
-        // First product card in the search results grid
-        this.firstSearchResultCard = page
-            .getByRole('listitem')
-            .filter({ has: page.getByRole('link', { name: /.*/ }) })
-            .filter({ has: page.locator('[data-asin]') })
-            .first();
     }
  
     // ── Bot-check handler ─────────────────────────────────────────────────────
  
     /**
-     * Amazon shows "Click the button below to continue shopping" to headless
-     * CI/CD runners (GitHub Actions, Jenkins, Docker) because their IP ranges
-     * are on Amazon's bot blocklist.
-     * Clicks through automatically; exits silently if page does not appear.
+     * Amazon shows a "Click the button below to continue shopping" page
+     * to headless CI/CD runners (GitHub Actions, Jenkins, Docker) because
+     * their IP ranges are on Amazon's bot blocklist.
+     *
+     * This method detects that page and clicks through it automatically.
+     * It is called inside goto() so every test is protected transparently.
+     * If the bot page does not appear, the try/catch exits silently.
      */
     private async handleBotCheckIfPresent(): Promise<void> {
         try {
@@ -115,7 +87,7 @@ export class AmazonHomePage {
                 timeout: 15000,
             });
         } catch {
-            // Bot-check page did not appear — normal flow, continue
+            // Bot-check page did not appear — normal homepage loaded, continue
         }
     }
  
@@ -123,7 +95,11 @@ export class AmazonHomePage {
  
     async goto(): Promise<void> {
         await this.page.goto('/', { waitUntil: 'domcontentloaded' });
+ 
+        // Handle bot-check page before any test actions run
         await this.handleBotCheckIfPresent();
+ 
+        // Confirm the real homepage rendered
         await this.searchInput.waitFor({ state: 'visible', timeout: 25000 });
     }
  
@@ -151,11 +127,14 @@ export class AmazonHomePage {
     // ── Electronics category ──────────────────────────────────────────────────
  
     async navigateToElectronicsCategory(): Promise<void> {
+        // Open the All Departments hamburger side panel
         await this.hamburgerMenu.waitFor({ state: 'visible', timeout: 15000 });
         await this.hamburgerMenu.click();
  
+        // Wait for the panel to open
         await this.page.waitForSelector('.hmenu-visible', { timeout: 15000 });
  
+        // Electronics link scoped to the visible panel
         const electronicsLink = this.page
             .locator('.hmenu-visible')
             .getByRole('link', { name: /^electronics$/i })
@@ -184,4 +163,3 @@ export class AmazonHomePage {
         });
     }
 }
- 
