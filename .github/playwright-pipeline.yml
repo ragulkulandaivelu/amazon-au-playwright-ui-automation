@@ -341,6 +341,14 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
+       - name: Upload raw videos report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-videos
+          path: test-results/**/*.webm
+          retention-days: 30
+
       - name: Upload Prod Reporting Labs report
         if: always()
         uses: actions/upload-artifact@v4
