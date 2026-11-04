@@ -26,6 +26,7 @@ export default defineConfig({
   //   trace: 'retain-on-failure'
   // }
   use: {
+  video : process.env.CI ? 'on' : 'retain-on-failure',
   viewport: { width: 1440, height: 900 },
   actionTimeout: 15000,
   navigationTimeout: 30000,
