@@ -34,6 +34,8 @@ export default defineConfig({
                 '--disable-dev-shm-usage',
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
+             // 500 ms pause between actions — looks more human, reduces bot triggers
+               slowMo: process.env.CI ? 500 : 0,
             ],
         },
  
@@ -42,8 +44,7 @@ export default defineConfig({
         locale: 'en-AU',
         timezoneId: 'Australia/Sydney',
  
-        // 500 ms pause between actions — looks more human, reduces bot triggers
-        slowMo: process.env.CI ? 500 : 0,
+        
  
         // Screenshots and traces on failure for debugging
         screenshot: 'only-on-failure',
