@@ -1,5 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
+import reportingLabsConfig from './reporting-labs.config';
+
 dotenv.config();
  
 export default defineConfig({
@@ -18,11 +20,11 @@ export default defineConfig({
         ['list'],
         ['html', { open: 'never' }],
         ['allure-playwright'],
+        ['reporting-labs', reportingLabsConfig],
     ],
  
     use: {
         baseURL: process.env.BASE_URL ?? 'https://www.amazon.com.au',
-
  
         // Human-like browser settings
         // ── Fix 2: human-like browser flags ───────────────────────────────
@@ -34,17 +36,15 @@ export default defineConfig({
                 '--disable-dev-shm-usage',
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
-             // 500 ms pause between actions — looks more human, reduces bot triggers
-               slowMo: process.env.CI ? 500 : 0,
             ],
+            // 500 ms pause between actions — looks more human, reduces bot triggers
+            slowMo: process.env.CI ? 500 : 0,
         },
  
         // Realistic viewport and Australian locale
         viewport: { width: 1280, height: 720 },
         locale: 'en-AU',
         timezoneId: 'Australia/Sydney',
- 
-        
  
         // Screenshots and traces on failure for debugging
         screenshot: 'only-on-failure',
@@ -78,4 +78,3 @@ export default defineConfig({
         },
     ],
 });
- 
