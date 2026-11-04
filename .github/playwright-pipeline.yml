@@ -85,7 +85,7 @@ jobs:
         run: npx playwright install-deps chromium
 
       - name: Run smoke tests on Dev
-        run: npx playwright test --grep @smoke
+        run: xvfb-run npx playwright test --grep @smoke --headed
         env:
           TEST_ENV: dev
 
