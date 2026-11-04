@@ -1,41 +1,78 @@
 import { defineConfig, devices } from '@playwright/test';
-// 1. Ensure your reporting-labs dependencies are imported at the top
-import reportinglabs from 'reporting-labs'; 
-// 2. IMPORT your configuration file so Playwright can read your custom title
-import reportingLabsConfig from './reporting-labs.config'; 
-
+import * as dotenv from 'dotenv';
+dotenv.config();
+ 
 export default defineConfig({
-  testDir: './tests',
-  fullyParallel: true,           
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 1, 
-  workers: process.env.CI ? 4 : undefined,
-  
-  reporter: [
-    ['html', { open: 'never', outputFolder: 'playwright-report' }],
-    ['list'],
-    // 3. FIX: Pass your custom configuration object directly into the plugin array parameters
-    ['reporting-labs', reportingLabsConfig] 
-  ],
-  
-  use: {
-    viewport: { width: 1440, height: 900 },
-    actionTimeout: 15000,
-    navigationTimeout: 20000,
-    screenshot: 'off',
-    trace: 'retain-on-failure'
-  },
-  
-  projects: [
-    {
-      name: 'chromium-ui',
-      use: { ...devices['Desktop Chrome'] },
-      testMatch: /.*amazonUi\.spec\.ts/,
+    testDir: './tests',
+ 
+    // Clean old results before every run
+    outputDir: 'test-results',
+ 
+    // Retry once in CI to absorb transient Amazon bot-check pages
+    retries: process.env.CI ? 1 : 0,
+ 
+    // One worker in CI — parallel headless runs increase bot-detection risk
+    workers: process.env.CI ? 1 : undefined,
+ 
+    reporter: [
+        ['list'],
+        ['html', { open: 'never' }],
+        ['allure-playwright'],
+    ],
+ 
+    use: {
+        baseURL: process.env.BASE_URL ?? 'https://www.amazon.com.au',
+ 
+        // ── Fix 2: human-like browser flags ───────────────────────────────
+        // Removes the "navigator.webdriver" JS flag that Amazon checks
+        // and disables the AutomationControlled feature blink flag.
+        launchOptions: {
+            args: [
+                '--disable-blink-features=AutomationControlled',
+                '--disable-dev-shm-usage',
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+            ],
+        },
+ 
+        // Realistic viewport and Australian locale
+        viewport: { width: 1280, height: 720 },
+        locale: 'en-AU',
+        timezoneId: 'Australia/Sydney',
+ 
+        // 500 ms pause between actions — looks more human, reduces bot triggers
+        slowMo: process.env.CI ? 500 : 0,
+ 
+        // Screenshots and traces on failure for debugging
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        trace: 'retain-on-failure',
+ 
+        // Global timeouts
+        actionTimeout: 20000,
+        navigationTimeout: 30000,
     },
-    {
-      name: 'api-pipeline',
-      use: { browserName: 'chromium', headless: true },
-      testMatch: /.*petstoreApi\.spec\.ts/,
-    }
-  ]
+ 
+    projects: [
+        // ── UI project — Amazon Australia ──────────────────────────────────
+        {
+            name: 'chromium-ui',
+            testMatch: '**/amazonUi.spec.ts',
+            use: {
+                ...devices['Desktop Chrome'],
+                channel: 'chrome',   // use installed Chrome, not Chromium — less detectable
+            },
+        },
+ 
+        // ── API project — Swagger Petstore ─────────────────────────────────
+        {
+            name: 'api-pipeline',
+            testMatch: '**/petstoreApi.spec.ts',
+            use: {
+                // No browser needed for API tests
+                baseURL: 'https://petstore.swagger.io/v2',
+            },
+        },
+    ],
 });
+ 
