@@ -15,3 +15,9 @@ test-results/
 play-reports/
 playwright-report/
 .env
+# allure
+allure-results*/
+allure-report*/
+
+auth/
+reporting-labs/
